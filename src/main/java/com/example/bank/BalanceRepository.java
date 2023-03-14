@@ -1,9 +1,13 @@
 package com.example.bank;
 
+import lombok.val;
+import org.springframework.stereotype.Repository;
+
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
+@Repository
 public class BalanceRepository {
 
     //  хранилище (обычно апи бд)
@@ -12,5 +16,10 @@ public class BalanceRepository {
 
     public BigDecimal getBalanceForId(Long accountId) {
         return storage.get(accountId);
+    }
+
+
+    public void save(Long id, BigDecimal amount) {
+        storage.put(id, amount);
     }
 }
